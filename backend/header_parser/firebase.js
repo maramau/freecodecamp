@@ -5,23 +5,19 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDq_Ri2qNjTNbwkT74vMDogVM2_md1meK4",
-  authDomain: "headerparser-e0927.firebaseapp.com",
-  projectId: "headerparser-e0927",
-  storageBucket: "headerparser-e0927.appspot.com",
-  messagingSenderId: "489045903393",
-  appId: "1:489045903393:web:35bd65cc0708e90b8c7b60"
+  apiKey: "AIzaSyAuUVFBwlEMdEc6WdyP7ZyzkkxMiPqHpts",
+  authDomain: "headerparser-69092.firebaseapp.com",
+  projectId: "headerparser-69092",
+  storageBucket: "headerparser-69092.appspot.com",
+  messagingSenderId: "321609985493",
+  appId: "1:321609985493:web:be08f8c9d9c52ea274615c"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-// Initialize Firebase
 function init() {
-    const appFirebase = initializeApp(firebaseConfig);
-  
-    return appFirebase;
-  }
-  
-  export {init};
+  const appFirebase = initializeApp(firebaseConfig);
+
+  return appFirebase;
+}
+
+export {init};

@@ -2,17 +2,17 @@
 const functions = require('firebase-functions');
 
 // init project
-var express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
-var app = express();
+const app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC 
-var cors = require('cors');
+const cors = require('cors');
 
 app.use(
     cors({
-      origin: ["http://localhost:3000", 'http://127.0.0.1:5000', 'https:freecodecamp.org'],
+      origin: ["http://localhost:3000", 'http://127.0.0.1:5000', 'https:freecodecamp.org', '162.158.158.56'],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
       optionsSuccessStatus: 200
@@ -36,8 +36,10 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/whoami", function (req, res) {
+  console.log(req.host)
+  console.log(req.ip)
   const obj = {
-    ipaddress: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
+    ipaddress: req.ip || req.host.split(':')[0],
     language: req.header('accept-language'),
     software: req.get('user-agent'),
   };
@@ -45,4 +47,4 @@ app.get("/api/whoami", function (req, res) {
   res.json(obj);
 });
 
-  exports.app = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(app);
